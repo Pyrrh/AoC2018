@@ -4,6 +4,7 @@ import java.io.File;
 import java.lang.Exception;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.HashSet;
 
 public class Main {
 
@@ -47,9 +48,13 @@ public class Main {
         int finalSum = 0;
         for (int i = 0; i < toSum.size(); ++i) {
             finalSum += toSum.get(i);
-            System.out.println(finalSum);
+            storeTotal(finalSum);
         }
 
         return finalSum;
+    }
+
+    static void storeTotal(int toStore) {
+
     }
 }
