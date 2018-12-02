@@ -29,7 +29,8 @@ public class Main {
             ArrayList<Integer> intArray = new ArrayList<>();
 
             while (scanner.hasNextLine()) {
-                intArray.add(scanner.nextLine().chars().sum());
+                String next = scanner.nextLine();
+                intArray.add(Integer.valueOf(next));
             }
 
 
@@ -46,6 +47,7 @@ public class Main {
         int finalSum = 0;
         for (int i = 0; i < toSum.size(); ++i) {
             finalSum += toSum.get(i);
+            System.out.println(finalSum);
         }
 
         return finalSum;
