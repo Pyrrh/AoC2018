@@ -4,7 +4,7 @@ import java.io.File;
 import java.lang.Exception;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.HashSet;
+import java.util.HashMap;
 
 public class Main {
 
@@ -14,8 +14,8 @@ public class Main {
                 throw new Exception("This program takes only one argument");
             }
 
-            var intValues = readValues(args[0]);
-            var totalSum = calculateTotal(intValues);
+            ArrayList<Integer> intValues = readValues(args[0]);
+            int totalSum = calculateTotal(intValues);
 
             System.out.println("the total is: " + totalSum);
 
@@ -48,13 +48,13 @@ public class Main {
         int finalSum = 0;
         for (int i = 0; i < toSum.size(); ++i) {
             finalSum += toSum.get(i);
-            storeTotal(finalSum);
+            calculateFirstRepeatTotal(finalSum);
         }
 
         return finalSum;
     }
 
-    static void storeTotal(int toStore) {
-
+    static int calculateFirstRepeatTotal (int toStore) {
+        
     }
 }
