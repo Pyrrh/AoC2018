@@ -15,7 +15,7 @@ public class Main {
             }
 
             ArrayList<Integer> intValues = readValues(args[0]);
-            int totalSum = calculateTotal(intValues);
+            int totalSum = calculateTotalAndRepeatFrequency(intValues);
 
             System.out.println("the total is: " + totalSum);
 
@@ -44,17 +44,23 @@ public class Main {
         return null;
     }
 
-    static int calculateTotal(ArrayList<Integer> toSum) {
+    static int calculateTotalAndRepeatFrequency(ArrayList<Integer> toSum) {
         int finalSum = 0;
+        HashMap<Integer, Integer> firstRepeat = new HashMap<>();
+        firstRepeat.put(finalSum, finalSum);
+
         for (int i = 0; i < toSum.size(); ++i) {
             finalSum += toSum.get(i);
-            calculateFirstRepeatTotal(finalSum);
+            System.out.println(finalSum);
+
+            if (!firstRepeat.containsValue(finalSum)) {
+                firstRepeat.put(finalSum, finalSum);
+            } else {
+                System.out.println("Repeat frequency: " + finalSum);
+            }
         }
 
         return finalSum;
     }
 
-    static int calculateFirstRepeatTotal (int toStore) {
-        
-    }
 }
