@@ -15,8 +15,8 @@ public class Main {
             }
 
             ArrayList<Integer> intValues = readValues(args[0]);
-            int totalSum = calculateTotalAndRepeatFrequency(intValues);
-
+            int totalSum = calculateTotal(intValues);
+            int repeatFrequency = calculateFirstRepeatFrequency(intValues);
             System.out.println("the total is: " + totalSum);
 
         } catch (Exception e) {
@@ -44,23 +44,41 @@ public class Main {
         return null;
     }
 
-    static int calculateTotalAndRepeatFrequency(ArrayList<Integer> toSum) {
+    static int calculateTotal(ArrayList<Integer> toSum) {
         int finalSum = 0;
-        HashMap<Integer, Integer> firstRepeat = new HashMap<>();
-        firstRepeat.put(finalSum, finalSum);
 
-        for (int i = 0; i < toSum.size(); ++i) {
-            finalSum += toSum.get(i);
-            System.out.println(finalSum);
+        if (toSum!= null) {
+            for (int i = 0; i < toSum.size(); ++i) {
+                finalSum += toSum.get(i);
+                System.out.println(finalSum);
 
-            if (!firstRepeat.containsValue(finalSum)) {
-                firstRepeat.put(finalSum, finalSum);
-            } else {
-                System.out.println("Repeat frequency: " + finalSum);
             }
         }
 
         return finalSum;
     }
 
+    static int calculateFirstRepeatFrequency(ArrayList<Integer> inputs) {
+        int sum = 0;
+        HashMap<Integer, Integer> firstRepeat = new HashMap<>();
+        firstRepeat.put(sum, sum);
+        boolean repeatFound = false;
+
+        while (!repeatFound) {
+            if (inputs != null) {
+                for (int i = 0; i < inputs.size(); ++i) {
+                    sum += inputs.get(i);
+                    if (!firstRepeat.containsValue(sum)) {
+                        firstRepeat.put(sum, sum);
+                    } else {
+                        System.out.println("Repeat frequency: " + sum);
+                        repeatFound = true;
+                        break;
+                    }
+                }
+            }
+
+        }
+        return sum;
+    }
 }
